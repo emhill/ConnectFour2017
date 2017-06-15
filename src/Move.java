@@ -1,4 +1,6 @@
-
+/*
+ * Store board moves
+ */
 public class Move {
 	private int x, y;
 	
