@@ -1,22 +1,52 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class BoardView {
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class BoardView extends JPanel {
 	
-private circle board;
-private rectangle circle;
+private Circle board;
+private Rectangle boardBase;
 
+public BoardView(String string) {
+	this.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent e){
+			board.setColor(Color.YELLOW);
+board = new Circle(200,170,20, Color.yellow);
+		}
+	});
+}
 
 public void reset(){
 	
 }
 
-public void displyEndGame(){
+public void displayEndGame(){
 	
 }
 
 public void Move(){
 	
 }
-		
 
+public void paintComponent(Graphics page){
+	board.paint(page);
+	
+}
 
+public static void main(String[] args) {
+	JFrame frame = new JFrame ();
+	BoardView phrase = new BoardView("Random String!");
+	//		phrase.revealLetter('a');
+	
+//	phrase.revealFullPhrase();
+	JPanel panel = phrase;
+
+	frame.getContentPane().add(panel);
+	frame.pack();
+	frame.setVisible(true);
+}
 }
