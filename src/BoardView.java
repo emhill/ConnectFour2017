@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -8,8 +11,11 @@ private Rectangle circle;
 
 
 public BoardView(String string) {
-	// TODO Auto-generated constructor stub
+	
+	board= new Circle (200,170,20, Color.YELLOW);
+			
 }
+
 
 public void reset(){
 	
@@ -23,6 +29,11 @@ public void Move(){
 	
 }
 		
+
+public void paintComponent(Graphics page) {
+	board.paint(page);
+	
+}
 
 public static void main(String[] args) {
 	JFrame frame = new JFrame ();
