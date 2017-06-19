@@ -10,6 +10,12 @@ public class Move {
 		this.column = column;
 		this.player = player;
 	}
+	
+	public Move(int column, Player player, BoardModel boardModel) {
+		this.column = column;
+		this.player = player;
+		this.row = boardModel.columnCheck(column);
+	}
 
 	/**
 	 * @return the x

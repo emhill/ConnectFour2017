@@ -5,14 +5,14 @@
 import java.awt.*;
 
 public class Player {
-	private String name;
-	private Color color;
-	private BoardModel boardModel;
+	protected String name;
+	protected Color color;
+	protected BoardModel board;
 	
 	public Player(String name, Color color, BoardModel boardModel) {
 		this.name = name;
 		this.color = color;
-		this.boardModel = boardModel;
+		this.board = boardModel;
 	}
 	
 	public String getName() {
@@ -24,7 +24,7 @@ public class Player {
 	}
 	
 	public BoardModel getBoardModel() {
-		return this.boardModel;
+		return this.board;
 	}
 
 	public void setName(String name) {

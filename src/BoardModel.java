@@ -12,7 +12,9 @@ public class BoardModel {
 		board = new Color[6][7];
 	}
 	
-	public Color[][] currBoard(){
+	
+	
+	public Color[][] getBoard(){
 		return board;
 	}
 	
@@ -45,12 +47,25 @@ public class BoardModel {
 	}
 	
 	public boolean isOver(){
+		int nullCounter = 0;
 		for (int row = 0; row < board.length; row++ ) {
 			for (int column = 0; column < board[row].length; column++) {	
+				if (board[row][column] == null)
+					nullCounter ++;
 				if (four(row, column) == true)
 					return true;
 			}
 		}
+		if (nullCounter == 0)
+			return true;
 		return false;
+	}
+	
+	public int columnCheck(int column) {
+		for (int row = 0; row < board.length; row++) {
+			if (board[row][column] != null)
+				return row;
+		}
+		return board.length-1;
 	}
 }
