@@ -22,6 +22,7 @@ public class Game_Control extends JFrame {
 			super.getContentPane().add(text1);
 			super.pack();
 			super.setVisible(true);
+			
 
 			
 		}
@@ -53,7 +54,7 @@ public class Game_Control extends JFrame {
 		
 		
 	public static void main(String[] args) {
-		new Game_Control (); 
+		new Game_Control ();
 		// TODO Auto-generated method stub
 
 	}

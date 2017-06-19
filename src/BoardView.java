@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
@@ -7,15 +5,9 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
->>>>>>> 60482cf6d04501fae0268e9dc4bcf950e253e476
 
 public class BoardView {
 	
-<<<<<<< HEAD
-
-	
-
-=======
 private Circle board;
 private Rectangle boardBase;
 
@@ -57,5 +49,5 @@ public static void main(String[] args) {
 	frame.pack();
 	frame.setVisible(true);
 }
->>>>>>> 60482cf6d04501fae0268e9dc4bcf950e253e476
+
 }
