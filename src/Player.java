@@ -5,31 +5,35 @@
 import java.awt.*;
 
 public class Player {
-	private String pName;
-	private Color pColor;
+	protected String name;
+	protected Color color;
+	protected BoardModel board;
 	
+	public Player(String name, Color color, BoardModel boardModel) {
+		this.name = name;
+		this.color = color;
+		this.board = boardModel;
+	}
 	
-	public String getpName() {
-		return pName;
+	public String getName() {
+		return name;
 	}
 
-
-
-	public Color getpColor() {
-		return pColor;
+	public Color getColor() {
+		return color;
+	}
+	
+	public BoardModel getBoardModel() {
+		return this.board;
 	}
 
-
-
-	public void setpName(String pName) {
-		this.pName = pName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-
-
-	public void setpColor(Color pColor) {
-		this.pColor = pColor;
-	}
+	public void setColor(Color color) {
+		this.color = color;
+	}	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
