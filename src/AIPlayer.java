@@ -25,6 +25,8 @@ public class AIPlayer extends Player{
 		return false;
 	}
 	
+	
+	
 	public Move predictPlayer() {
 		return new Move(1,1, player);
 	}
