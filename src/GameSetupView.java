@@ -1,12 +1,17 @@
 import java.awt.Dimension;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import javax.swing.JTextField;
 //Parth Patel
 public class GameSetupView extends JPanel{
 	private String GameName;
+	private JTextField textbox;
+	private String title; 
+	public GameSetupView(){
+	textbox = new JTextField(50);
+	this.add(textbox);
 	
+	}
 	
 	
 	public static void main(String[] args) {
