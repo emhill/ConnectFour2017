@@ -34,7 +34,7 @@ public class GameSetupView extends JPanel{
 	                    JOptionPane.PLAIN_MESSAGE,
 	                    icon,
 	                    possibilities,
-	                    "ham");
+	                    "");
 	
 	Object[] colors = {"Red", "Yellow", "Blue", "Green"};
 	String c = (String)JOptionPane.showInputDialog(
@@ -44,7 +44,7 @@ public class GameSetupView extends JPanel{
 	                    JOptionPane.PLAIN_MESSAGE,
 	                    icon,
 	                    colors,
-	                    "ham");
+	                    "");
 	
 	
 	
