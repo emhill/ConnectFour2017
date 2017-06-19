@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
@@ -12,7 +14,7 @@ public class Game_Control extends JFrame {
 		
 		
 		public Game_Control (){
-			super("Hangman Game");
+			super("Connect Four");
 			super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			text1 = new Text ("Hassan"); 
 			super.getContentPane().setLayout(
@@ -35,26 +37,71 @@ public class Game_Control extends JFrame {
 		
 		public void StartGame () {
 			
+			
+			
+			
+			
 
 		}
 		public void EndGame (){
+			
 
 	}
 		public void takeTurn (){
+			
 			
 		}
 		
 		public void reset (){
 			
+			
+		
+			
 		}
 		
 		public void setupBoard () {
 			
+			
 		}
 		
 		
+		
+		
+		
+		
+		
+		
+	public BoardModel getBoard() {
+			return board;
+		}
+
+
+
+
+
+
+
+		public void setBoard(BoardModel board) {
+			this.board = board;
+		}
+
+
+
+
+
+
+
 	public static void main(String[] args) {
-		new Game_Control ();
+		Game_Control g = new Game_Control();
+		Player player = new Player("C4", Color.black.brighter(), g.getBoard());
+		
+		
+		
+		
+		
+		
+		
+		
 		// TODO Auto-generated method stub
 
 	}
