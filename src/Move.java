@@ -2,25 +2,32 @@
  * Store board moves
  */
 public class Move {
-	private int x, y;
+	private int row, column;
+	Player player;
 	
-	public Move(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Move(int row, int column, Player player) {
+		this.row = row;
+		this.column = column;
+		this.player = player;
 	}
 
 	/**
 	 * @return the x
 	 */
-	public int getX() {
-		return x;
+	public int getRow() {
+		return row;
 	}
 
 	/**
 	 * @return the y
 	 */
-	public int getY() {
-		return y;
+	public int getColumn() {
+		return column;
 	}
+	
+	public Player getPlayer() {
+		return this.player;
+	}
+	
 	
 }
