@@ -30,6 +30,7 @@ public class Game_Control extends JFrame {
 		}
 
 		public void StartGame () {
+			
 		}
 			
 		public void EndGame (){
@@ -46,7 +47,7 @@ public class Game_Control extends JFrame {
 	public BoardModel getBoard() {
 			return board;
 		}
-		
+	
 	public void setBoard(BoardModel board) {
 			this.board = board;
 		}
