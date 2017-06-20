@@ -39,8 +39,8 @@ public GameSetupView(){
                 possibilities,
                 "");
 		
-		Object[] colors = {"Red", "Yellow", "Blue", "Green"};
-		Color = (Color)JOptionPane.showInputDialog(
+		String[] colors = {"Red", "Yellow", "Blue", "Green"};
+		String color = (String)JOptionPane.showInputDialog(
                 frame,
                 "Please Select A Color:",
                 "Connect Four",
@@ -48,6 +48,18 @@ public GameSetupView(){
                 icon,
                 colors,
                 "");
+		if (color == "Red"){
+			Color = Color.RED;
+		}
+		if (color == "Yellow"){
+			Color = Color.YELLOW;
+		}
+		if (color=="Blue"){
+			Color = Color.BLUE;
+		}
+		if (color == "Grenn"){
+			Color = Color.GREEN;
+		}
 }
 //	 Name = (String)JOptionPane.showInputDialog(
 //                frame,
