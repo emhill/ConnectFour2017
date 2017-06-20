@@ -14,7 +14,7 @@ public class Move {
 	public Move(int column, Player player, BoardModel boardModel) {
 		this.column = column;
 		this.player = player;
-		this.row = boardModel.columnCheck(column);
+		this.row = boardModel.columnRow(column);
 	}
 
 	/**

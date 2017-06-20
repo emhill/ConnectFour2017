@@ -7,12 +7,14 @@ import java.awt.*;
 public class Player {
 	protected String name;
 	protected Color color;
-	protected BoardModel board;
+	protected BoardModel boardModel;
+	protected Color [][] board;
 	
 	public Player(String name, Color color, BoardModel boardModel) {
 		this.name = name;
 		this.color = color;
-		this.board = boardModel;
+		this.boardModel = boardModel;
+		this.board = boardModel.getBoard();
 	}
 	
 	public String getName() {
@@ -21,10 +23,6 @@ public class Player {
 
 	public Color getColor() {
 		return color;
-	}
-	
-	public BoardModel getBoardModel() {
-		return this.board;
 	}
 
 	public void setName(String name) {
