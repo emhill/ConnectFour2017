@@ -25,18 +25,18 @@ private BoardModel bm;
 
 
 public BoardView(BoardModel string) {
-	circles = new Circle[7][6];
+	bm =string;
+	circles = new Circle[bm.getBoard().length][bm.getBoard()[0].length];
 	int x=0;	
-	bm = string;
 	for(int i =100; x < circles.length; i+=100, x++){
 		int y=0;
 		for (int t = 135; y < circles[x].length; t+=100, y++){
-			circles[x][y] = new Circle(i, t, 40, Color.yellow.darker());
-			System.out.println(x + y + i + t);
+			circles[x][y] = new Circle(t, i, 40, Color.yellow.darker());
+			//System.out.println(x + y + i + t);
 			}
 		}
 	
-	boardBase = new Rectangle(50,90,700, 600, Color.yellow);
+	boardBase = new Rectangle(30,50,800, 600, Color.yellow);
 	this.setPreferredSize(new Dimension(800,800));
 	board = new Circle(200,170,20, Color.red);
 //	this.addMouseListener(new MouseAdapter(){
@@ -105,24 +105,37 @@ public int getNextMove(){
 
 public void paintComponent(Graphics page){
 	 boardBase.paint(page);
+	 
+	 for (int i =0; i<circles.length; i ++){
+			for (int t =0; t<circles[i].length; t ++){
+				if (bm.getBoard() [i] [t] != null)
+					circles[i][t].setColor(bm.getBoard()[i][t]);				
+				
+			}}
 	// board.paint(page);
 	 for(int i =0; i < circles.length; i++){
 			for (int t = 0; t < circles[i].length; t++){
 				if (circles[i][t] != null)
 				circles[i][t].paint(page);
 		
-				}}
-	 
-	 for (int i =0; i<6; i ++){
-			for (int t =0; t<6; t ++){
-				//if (b [i] [t] == color)
-					circles[i][t].setColor(Color.red);				
-				
-			}}				
+				}
+			}
 }
+
 public static void main(String[] args) {
-	JFrame frame = new JFrame ();
 	BoardModel b = new BoardModel();
+	Player p1 = new Player("P1", Color.RED, b);
+	AIPlayer p2 = new AIPlayer("AI", Color.BLUE, b, p1);	
+	b.print();
+	
+	Move move = new Move(0, p1);
+	p1.makeMove(move);
+	b.print();
+
+	p2.makeMove();
+	b.print();
+	
+	JFrame frame = new JFrame ();
 	BoardView phrase = new BoardView(b);
 	//		phrase.revealLetter('a');
 	
