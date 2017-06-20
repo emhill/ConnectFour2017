@@ -33,16 +33,22 @@ public class BoardModel {
 			return false;
 		
 		Color color = board[row][column];
-		if (board[row][column+1] == color && board[row][column+2] == color && board[row][column+3] == color) 
+		if (column+1 >board[row].length && column+2 >board[row].length && column+3 >board[row].length &&
+			board[row][column+1] == color && board[row][column+2] == color && board[row][column+3] == color) 
 			return true; //checks colors to the right
 		
-		if (board[row+1][column] == color && board[row+2][column] == color && board[row+3][column] == color) 
+		if (row+1 > board.length && row+2 > board.length && row+3 > board.length && 
+			board[row+1][column] == color && board[row+2][column] == color && board[row+3][column] == color) 
 			return true; //checks colors to the bottom
 		
-		if (board[row+1][column+1] == color && board[row+2][column+2] == color && board[row+3][column+3] == color) 
+		if (column+1 >board[row].length && column+2 >board[row].length && column+3 >board[row].length &&
+				row+1 > board.length && row+2 > board.length && row+3 > board.length && 
+			board[row+1][column+1] == color && board[row+2][column+2] == color && board[row+3][column+3] == color) 
 			return true; //checks bottom right diagonal
 		
-		if (board[row+1][column-1] == color && board[row+2][column-2] == color && board[row+3][column-3] == color) 
+		if (row+1 > board.length && row+2 > board.length && row+3 > board.length && 
+			column-1 >board[row].length && column-2 >board[row].length && column-3 >board[row].length &&
+			board[row+1][column-1] == color && board[row+2][column-2] == color && board[row+3][column-3] == color) 
 			return true; //checks bottom left diagonal
 		
 		return false;
