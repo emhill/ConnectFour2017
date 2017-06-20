@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+
 import java.awt.Font;
 import java.awt.Frame;
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Color;
 
 
 //Parth Patel
@@ -15,7 +17,7 @@ public class GameSetupView extends JPanel{
 	private static Icon icon;
 	private String Name;
 	private String Difficulty;
-	private String Color;
+	private Color Color;
 	
 public GameSetupView(){
 		
@@ -39,7 +41,7 @@ public GameSetupView(){
                 "");
 		
 		Object[] colors = {"Red", "Yellow", "Blue", "Green"};
-		Color = (String)JOptionPane.showInputDialog(
+		Color = (Color)JOptionPane.showInputDialog(
                 frame,
                 "Please Select A Color:",
                 "Connect Four",
@@ -47,21 +49,6 @@ public GameSetupView(){
                 icon,
                 colors,
                 "");
-		
-		
-		Text name = new Text(Name);
-		name.setPreferredSize(new Dimension(650, 50));
-		this.add(name);
-		
-		
-		Text difficulty = new Text(Difficulty);
-		difficulty.setPreferredSize(new Dimension(650, 50));
-		this.add(difficulty);
-		
-		
-		Text color = new Text(Color);
-		color.setPreferredSize(new Dimension(650, 50));
-		this.add(color);
 		
 	
 	}
@@ -74,7 +61,7 @@ public String getDifficulty() {
 	return Difficulty;
 }
 
-public String getColor() {
+public Color getColor() {
 	return Color;
 }
 
