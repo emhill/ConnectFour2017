@@ -44,8 +44,8 @@ public BoardView(BoardModel string) {
 //		}
 		public void mousePressed(MouseEvent e) {
 			int x = e.getX();
-			int y = 0;
-			int j = 0;
+			int y = 5;
+			int j = (x/100);
 			circles[j][y].setColor(Color.red);
 			repaint();
 //			  int x = (h / bs), y = 0; //nextspace
