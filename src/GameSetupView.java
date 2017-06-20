@@ -63,6 +63,7 @@ public GameSetupView(){
 		Color.setPreferredSize(new Dimension(650, 50));
 		this.add(Color);
 		
+	//	BoardView board = new BoardView("Hassan");
 	}
 
 public static void main(String[] args){
