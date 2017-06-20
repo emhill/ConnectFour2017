@@ -28,38 +28,25 @@ public class Game_Control extends JFrame {
 
 			
 		}
-		public void StartGame () {
-		
-			
-			
-			
-			
-			
-		}
-		public void EndGame (){
-			
 
-	}
+		public void StartGame () {
+		}
+			
+		public void EndGame (){
+		}
 		public void takeTurn (){
 			
-			
-			
-			
-			
 		}
-		
 		public void reset (){
 			boardView.reset();
 			board.resetBoard();
 				
 		}
-		
-		
-		
-		
+
 	public BoardModel getBoard() {
 			return board;
 		}
+		
 	public void setBoard(BoardModel board) {
 			this.board = board;
 		}
