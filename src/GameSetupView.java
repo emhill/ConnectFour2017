@@ -49,20 +49,20 @@ public GameSetupView(){
                 "");
 		
 		
-		Text name = new Text(Name);
-		name.setPreferredSize(new Dimension(650, 50));
-		this.add(name);
-		
-		
-		Text difficulty = new Text(Difficulty);
-		difficulty.setPreferredSize(new Dimension(650, 50));
-		this.add(difficulty);
-		
-		
-		Text color = new Text(Color);
-		color.setPreferredSize(new Dimension(650, 50));
-		this.add(color);
-		
+//		Text name = new Text(Name);
+//		name.setPreferredSize(new Dimension(650, 50));
+//		this.add(name);
+//		
+//		
+//		Text difficulty = new Text(Difficulty);
+//		difficulty.setPreferredSize(new Dimension(650, 50));
+//		this.add(difficulty);
+//		
+//		
+//		Text color = new Text(Color);
+//		color.setPreferredSize(new Dimension(650, 50));
+//		this.add(color);
+//		
 	
 	}
 
