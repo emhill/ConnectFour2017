@@ -126,7 +126,7 @@ public class BoardView extends JPanel {
 	public static void main(String[] args) {
 		BoardModel b = new BoardModel();
 		Player p1 = new Player("P1", Color.RED, b);
-		AIPlayer p2 = new AIPlayer("AI", Color.BLUE, b, p1);	
+		AIPlayer p2 = new AIPlayer("AI", Color.BLUE, b, p1, "Easy");	
 		b.print();
 
 		Move move = new Move(0, p1);
