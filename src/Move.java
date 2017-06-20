@@ -16,6 +16,11 @@ public class Move {
 		this.player = player;
 		this.row = boardModel.columnRow(column);
 	}
+	
+	public Move(int column, Player player){
+		this.column = column;
+		this.player = player;
+	}
 
 	/**
 	 * @return the x

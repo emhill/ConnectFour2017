@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class AIPlayer extends Player{
@@ -6,79 +7,12 @@ public class AIPlayer extends Player{
 	private String difficulty;
 	private Player opponent;
 	private Color[][] board = boardModel.getBoard();
+	private boolean isFirstMove;
 	
 	public AIPlayer(String name, Color color, BoardModel boardModel, Player opponent) {
 		super(name, color, boardModel);
 		this.opponent = opponent;
-	}
-	
-	public Move makeMove() {
-		return new Move(1,1, this);
-	}
-	
-	public boolean four(int row, int column) {
-		Color color = board[row][column];
-		if (board[row][column+1] == color && board[row][column+2] == color && board[row][column+3] == color) 
-			return true; //checks colors to the right
-		
-		if (board[row+1][column] == color && board[row+2][column] == color && board[row+3][column] == color) 
-			return true; //checks colors to the bottom
-		
-		if (board[row+1][column+1] == color && board[row+2][column+2] == color && board[row+3][column+3] == color) 
-			return true; //checks bottom right diagonal
-		
-		if (board[row+1][column-1] == color && board[row+2][column-2] == color && board[row+3][column-3] == color) 
-			return true; //checks bottom left diagonal
-		
-		return false;
-	}
-	
-	private boolean three() {
-		Color color = opponent.getColor();
-		boolean threeDone = false;
-		for (int row = 0; row < board.length; row ++) {
-			for (int column = 0; column < board[row].length; column++) {
-				if (board[row][column+1] == color && board[row][column+2] == color) 
-					threeDone = true; //checks colors to the right
-				
-				if (board[row+1][column] == color && board[row+2][column] == color) 
-					threeDone = true; //checks colors to the bottom
-				
-				if (board[row+1][column+1] == color && board[row+2][column+2] == color) 
-					threeDone = true; //checks bottom right diagonal
-				
-				if (board[row+1][column-1] == color && board[row+2][column-2] == color) 
-					threeDone = true; //checks bottom left diagonal
-			}
-		}
-		
-		
-		return threeDone;
-	}
-	
-	
-	
-	private boolean two(int row, int column){
-		Color color = opponent.getColor();
-		boolean twoDone = false;
-		if (board[row][column+1] == color) 
-			twoDone = true; //checks colors to the right
-		
-		if (board[row+1][column] == color) 
-			twoDone = true; //checks colors to the bottom
-		
-		if (board[row+1][column+1] == color) 
-			twoDone = true; //checks bottom right diagonal
-		
-		if (board[row+1][column-1] == color) 
-			twoDone = true; //checks bottom left diagonal
-		
-		return twoDone;
-	}
-	
-	
-	private Move predictPlayer() {
-		return new Move(1,1, opponent);
+		this.isFirstMove = false;
 	}
 	
 	private boolean canPlay(int row, int column) {
@@ -177,13 +111,52 @@ public class AIPlayer extends Player{
 		return -1;
 	}
 	
-	private void asses(Player player) {		
-		Color color = player.getColor();
+	public Move makeMove() {
+		//the first move
+		if (!isFirstMove){
+			this.isFirstMove = true;
+			return new Move(3, this, boardModel);
+		}
+		
+		//setting difficulty
+		if (difficulty == "easy") {
+			int random = ThreadLocalRandom.current().nextInt(0, 6 + 1);
+			return new Move(random, this, boardModel);
+		}
+		int diffInt = 2;
+		if (difficulty == "medium")
+			diffInt = 3;
+		if (difficulty == "hard")
+			diffInt = 2;
+	
+		//predicting opponents move
+		Color color = opponent.getColor();
 		for(int row = 0; row < board.length; row ++) {
 			for(int column = 0; column < board[row].length; column ++) {
-
+				if (assesRight(row, column, diffInt, color) > 0)
+					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+				else if (assesDown(row, column, diffInt, color) > 0)
+					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+				else if (assesBottomRight(row, column, diffInt, color) > 0)
+					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+				else if (assesBottomLeft(row, column, diffInt, color) > 0)
+					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+				else{
+					
+					color = this.color;
+					if (assesRight(row, column, diffInt, color) > 0)
+						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+					else if (assesDown(row, column, diffInt, color) > 0)
+						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+					else if (assesBottomRight(row, column, diffInt, color) > 0)
+						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+					else if (assesBottomLeft(row, column, diffInt, color) > 0)
+						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+				}
+					
 			}
 		}
+		return new Move(5, this);
 			
 	}
 
