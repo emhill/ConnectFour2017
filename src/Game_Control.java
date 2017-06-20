@@ -28,20 +28,13 @@ public class Game_Control extends JFrame {
 
 			
 		}
-		
-		
-		
-		
-		
-		
-		
 		public void StartGame () {
+		
 			
 			
 			
 			
 			
-
 		}
 		public void EndGame (){
 			
@@ -50,23 +43,16 @@ public class Game_Control extends JFrame {
 		public void takeTurn (){
 			
 			
+			
+			
+			
 		}
 		
 		public void reset (){
-			
-			
-		
-			
+			boardView.reset();
+			board.resetBoard();
+				
 		}
-		
-		public void setupBoard () {
-			
-			
-		}
-		
-		
-		
-		
 		
 		
 		
@@ -74,26 +60,19 @@ public class Game_Control extends JFrame {
 	public BoardModel getBoard() {
 			return board;
 		}
-
-
-
-
-
-
-
-		public void setBoard(BoardModel board) {
+	public void setBoard(BoardModel board) {
 			this.board = board;
 		}
 
-
-
-
-
-
-
 	public static void main(String[] args) {
 		Game_Control g = new Game_Control();
-		Player player = new Player("C4", Color.black.brighter(), g.getBoard());
+		
+		//Player player = new Player("C4", Color.black.brighter(), g.getBoard());
+		
+		
+		
+		
+		
 		
 		
 		
