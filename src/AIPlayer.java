@@ -111,7 +111,8 @@ public class AIPlayer extends Player{
 		return -1;
 	}
 	
-	public Move makeMove() {
+
+	public Move AIMove() {
 		//the first move
 		if (!isFirstMove){
 			this.isFirstMove = true;
@@ -156,13 +157,14 @@ public class AIPlayer extends Player{
 					
 			}
 		}
-		return new Move(5, this);
-			
+		return new Move(5, this);		
 	}
 
+	public void makeMove() {
+		this.boardModel.updateBoard(this.AIMove());
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

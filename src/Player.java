@@ -16,6 +16,10 @@ public class Player {
 		
 	}
 	
+	public void makeMove(Move move) {
+		boardModel.updateBoard(move);
+	}
+	
 	public String getName() {
 		return name;
 	}
