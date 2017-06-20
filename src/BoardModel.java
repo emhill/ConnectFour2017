@@ -67,4 +67,32 @@ public class BoardModel {
 		return board.length-1;
 	}
 	
+	public void print(){
+		for (int row = 0; row < board.length; row++) {
+			for (int column = 0; column < board[row].length; column++) {
+				System.out.print(board[row][column]);
+				System.out.print(", ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+//		BoardModel b = new BoardModel();
+//		Player p1 = new Player("P1", Color.RED, b);
+//		AIPlayer p2 = new AIPlayer("AI", Color.BLUE, b, p1);	
+//		b.print();
+//		
+//		Move move = new Move(0, p1);
+//		p1.makeMove(move);
+//		b.print();
+//	
+//		p2.makeMove();
+//		b.print();
+	}
+	
 }
