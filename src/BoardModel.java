@@ -12,8 +12,6 @@ public class BoardModel {
 		board = new Color[6][7];
 	}
 	
-	
-	
 	public Color[][] getBoard(){
 		return board;
 	}
@@ -61,11 +59,12 @@ public class BoardModel {
 		return false;
 	}
 	
-	public int columnCheck(int column) {
+	public int columnRow(int column) {
 		for (int row = 0; row < board.length; row++) {
 			if (board[row][column] != null)
 				return row;
 		}
 		return board.length-1;
 	}
+	
 }
