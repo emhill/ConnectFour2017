@@ -38,36 +38,35 @@ public BoardView(BoardModel string) {
 	boardBase = new Rectangle(50,90,700, 600, Color.yellow);
 	this.setPreferredSize(new Dimension(800,800));
 	board = new Circle(200,170,20, Color.red);
-	this.addMouseListener(new MouseAdapter(){
-//		public void mouseMoved(MouseEvent e){
-//			board.setColor(Color.blue);
-//			repaint();
-//		}
-		public void mousePressed(MouseEvent e) {
-			int x = e.getX();
-			int y = 5;
-			int j = (x/100);
-//			circles[j][y].setColor(Color.red);
-//			repaint();
-//			Game_Control gc= new Game_Control();
-			Player p = new Player("test", Color.blue, string);
-			
-			Move move = new Move(j,p);
-			Color color = Color.RED;
-			//Color[][] b = move.getBoard();
-			for (int i =0; i<6; i ++){
-				for (int t =0; t<6; t ++){
-					//if (b [i] [t] == color)
-						circles[i][t].setColor(Color.red);				
-					
-					
-				}
-				repaint();
-			}
-			
+//	this.addMouseListener(new MouseAdapter(){
+////		public void mouseMoved(MouseEvent e){
+////			board.setColor(Color.blue);
+////			repaint();
+////		}
+//		public void mousePressed(MouseEvent e) {
+//			int x = e.getX();
+//			int y = 5;
+//			int j = (x/100);
+////			circles[j][y].setColor(Color.red);
+////			repaint();
+////			Game_Control gc= new Game_Control();
+//			Player p = new Player("test", Color.blue, string);
+//			
+//			Move move = new Move(j,p);
+//			Color color = Color.RED;
+//			//Color[][] b = move.getBoard();
+//			for (int i =0; i<6; i ++){
+//				for (int t =0; t<6; t ++){
+//					//if (b [i] [t] == color)
+//						circles[i][t].setColor(Color.red);				
+//					
+//					
+//				}
+//				repaint();
+//			}
+			repaint();
 			  }
-	});
-}
+
 
 public void reset(){
 	circles = new Circle[7][6];
@@ -110,7 +109,15 @@ public void paintComponent(Graphics page){
 			for (int t = 0; t < circles[i].length; t++){
 				if (circles[i][t] != null)
 				circles[i][t].paint(page);
+		
 				}}
+	 
+	 for (int i =0; i<6; i ++){
+			for (int t =0; t<6; t ++){
+				//if (b [i] [t] == color)
+					circles[i][t].setColor(Color.red);				
+				
+			}}				
 }
 public static void main(String[] args) {
 	JFrame frame = new JFrame ();
