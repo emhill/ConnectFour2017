@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Color;
@@ -49,9 +50,52 @@ public GameSetupView(){
                 icon,
                 colors,
                 "");
+}
+//	 Name = (String)JOptionPane.showInputDialog(
+//                frame,
+//                "Insert Name here:\n",
+//                "Connect Four",
+//                JOptionPane.PLAIN_MESSAGE,
+//                icon,
+//                null,
+//                "");
+//
+//		Object[] possibilities = {"Easy", "Intermediate", "Hard"};
+//		Difficulty = (String)JOptionPane.showInputDialog(
+//                frame,
+//                "Please Select Difficulty Level:",
+//                "Connect Four",
+//                JOptionPane.PLAIN_MESSAGE,
+//                icon,
+//                possibilities,
+//                "");
+//		
+//		Object[] colors = {"Red", "Yellow", "Blue", "Green"};
+//		color = (String)JOptionPane.showInputDialog(
+//                frame,
+//                "Please Select A Color:",
+//                "Connect Four",
+//                JOptionPane.PLAIN_MESSAGE,
+//                icon,
+//                colors,
+//                "");
 		
-	
-	}
+		
+//		Text name = new Text(Name);
+//		name.setPreferredSize(new Dimension(650, 50));
+//		this.add(name);
+//		
+//		
+//		Text difficulty = new Text(Difficulty);
+//		difficulty.setPreferredSize(new Dimension(650, 50));
+//		this.add(difficulty);
+//		
+//		
+//		Text color = new Text(Color);
+//		color.setPreferredSize(new Dimension(650, 50));
+//		this.add(color);
+//		
+
 
 public String getName() {
 	return Name;

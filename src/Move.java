@@ -40,5 +40,9 @@ public class Move {
 		return this.player;
 	}
 	
+	public String toString() {
+		return row + " " + column;
+	}
+	
 	
 }

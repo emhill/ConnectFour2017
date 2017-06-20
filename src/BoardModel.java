@@ -24,6 +24,7 @@ public class BoardModel {
 	}
 	
 	public void updateBoard(Move move){		
+		//System.out.println("Updating board" + move);
 		board[columnRow(move.getColumn())][move.getColumn()] = move.getPlayer().getColor();
 	}
 	
@@ -45,17 +46,17 @@ public class BoardModel {
 	}
 	
 	public boolean isOver(){
-		int nullCounter = 0;
-		for (int row = 0; row < board.length; row++ ) {
-			for (int column = 0; column < board[row].length; column++) {	
-				if (board[row][column] == null)
-					nullCounter ++;
-				if (four(row, column) == true)
-					return true;
-			}
-		}
-		if (nullCounter == 0)
-			return true;
+//		int nullCounter = 0;
+//		for (int row = 0; row < board.length; row++ ) {
+//			for (int column = 0; column < board[row].length; column++) {	
+//				if (board[row][column] == null)
+//					nullCounter ++;
+//				if (four(row, column) == true)
+//					return true;
+//			}
+//		}
+//		if (nullCounter == 0)
+//			return true;
 		return false;
 	}
 	
@@ -65,6 +66,34 @@ public class BoardModel {
 				return row;
 		}
 		return board.length-1;
+	}
+	
+	public void print(){
+		for (int row = 0; row < board.length; row++) {
+			for (int column = 0; column < board[row].length; column++) {
+				System.out.print(board[row][column]);
+				System.out.print(", ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+//		BoardModel b = new BoardModel();
+//		Player p1 = new Player("P1", Color.RED, b);
+//		AIPlayer p2 = new AIPlayer("AI", Color.BLUE, b, p1);	
+//		b.print();
+//		
+//		Move move = new Move(0, p1);
+//		p1.makeMove(move);
+//		b.print();
+//	
+//		p2.makeMove();
+//		b.print();
 	}
 	
 }
