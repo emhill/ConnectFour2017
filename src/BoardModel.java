@@ -24,6 +24,7 @@ public class BoardModel {
 	}
 	
 	public void updateBoard(Move move){		
+		//System.out.println("Updating board" + move);
 		board[columnRow(move.getColumn())][move.getColumn()] = move.getPlayer().getColor();
 	}
 	
@@ -45,17 +46,17 @@ public class BoardModel {
 	}
 	
 	public boolean isOver(){
-		int nullCounter = 0;
-		for (int row = 0; row < board.length; row++ ) {
-			for (int column = 0; column < board[row].length; column++) {	
-				if (board[row][column] == null)
-					nullCounter ++;
-				if (four(row, column) == true)
-					return true;
-			}
-		}
-		if (nullCounter == 0)
-			return true;
+//		int nullCounter = 0;
+//		for (int row = 0; row < board.length; row++ ) {
+//			for (int column = 0; column < board[row].length; column++) {	
+//				if (board[row][column] == null)
+//					nullCounter ++;
+//				if (four(row, column) == true)
+//					return true;
+//			}
+//		}
+//		if (nullCounter == 0)
+//			return true;
 		return false;
 	}
 	

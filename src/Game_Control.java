@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -10,10 +12,10 @@ public class Game_Control extends JFrame {
 		private BoardView boardView;
 		private BoardModel board;
 		private Player Player1;
-		private AIPlayer Player2;
+		private Player Player2;
 		private Text text1;
 		private GameSetupView panel; 
-		
+		//private int nextX = -1;
 		
 		public Game_Control (){ 
 			super("Connect Four");
@@ -25,23 +27,32 @@ public class Game_Control extends JFrame {
 			board = new BoardModel (); 
 			boardView= new BoardView(board);
 
-			
+			//boardView.setFocusable(true);
 			super.getContentPane().add(boardView);
 			super.getContentPane().add(panel);
 			super.pack();
 			super.setVisible(true);
 			this.StartGame(); 
 		
-			
+			// Assume human player goes first
+			this.addMouseListener(new MouseAdapter(){
+				public void mouseClicked(MouseEvent e) {
+					int x = e.getX();
+					//System.out.println(x);
+					int nextX = (x/100);
+					takeTurn(nextX);
+				}
+			});
 
 			
 		}
 
 		public void StartGame () {
-			System.out.print(panel.getDifficulty());
-			this.Player1= new Player(panel.getName(), panel.getBackground(), board);
-			this.Player2 = new AIPlayer("KK", Color.black, board, Player1);
-			this.takeTurn();
+			//System.out.print(panel.getDifficulty());
+			this.Player1= new Player(panel.getName(), panel.getColor(), board);
+			//this.Player2 = new AIPlayer("KK", Color.black, board, Player1);
+			this.Player2 = new Player("Test AI", Color.BLACK, board);
+			//this.takeTurn();
 			
 			
 			
@@ -49,22 +60,28 @@ public class Game_Control extends JFrame {
 			
 		public void EndGame (){
 		}
-		public void takeTurn (){
-			boolean p1Turn = true;
-			
-			for (int i= 0; !board.isOver(); i++) {
+		
+		private boolean p1Turn = true;
+		public void takeTurn (int nextX){
+			// TODO Change to if !board.isOver()
+			//for (int i= 0; !board.isOver(); i++) {
+			if (!board.isOver()) {
 				if (p1Turn){
-					Move move = new Move(boardView.getNextMove(), Player1);
+					Move move = new Move(nextX, Player1);
 					Player1.makeMove(move);
-					p1Turn = !p1Turn;
 				}
 				else {
-					Player2.makeMove();
-					p1Turn = !p1Turn;
+					//AI player
+					// Player2.makeMove();
+					// Human player2 
+					Move move = new Move(nextX, Player2);
+					Player2.makeMove(move);
 				}
+				p1Turn = !p1Turn;
+				boardView.repaint();
+			} else {
+				boardView.displayEndGame();
 			}
-
-			
 		}
 		public void reset (){
 			boardView.reset();

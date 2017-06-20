@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 
@@ -13,40 +14,40 @@ import java.awt.Dimension;
 public class GameSetupView extends JPanel{
 	private static Frame frame;
 	private static Icon icon;
-	private String Name;
-	private String Difficulty;
-	private String Color;
+	private String Name = "Hello";
+	private String Difficulty = "Easy";
+	private Color color = Color.RED;
 	
 public GameSetupView(){
 		
-	 Name = (String)JOptionPane.showInputDialog(
-                frame,
-                "Insert Name here:\n",
-                "Connect Four",
-                JOptionPane.PLAIN_MESSAGE,
-                icon,
-                null,
-                "");
-
-		Object[] possibilities = {"Easy", "Intermediate", "Hard"};
-		Difficulty = (String)JOptionPane.showInputDialog(
-                frame,
-                "Please Select Difficulty Level:",
-                "Connect Four",
-                JOptionPane.PLAIN_MESSAGE,
-                icon,
-                possibilities,
-                "");
-		
-		Object[] colors = {"Red", "Yellow", "Blue", "Green"};
-		Color = (String)JOptionPane.showInputDialog(
-                frame,
-                "Please Select A Color:",
-                "Connect Four",
-                JOptionPane.PLAIN_MESSAGE,
-                icon,
-                colors,
-                "");
+//	 Name = (String)JOptionPane.showInputDialog(
+//                frame,
+//                "Insert Name here:\n",
+//                "Connect Four",
+//                JOptionPane.PLAIN_MESSAGE,
+//                icon,
+//                null,
+//                "");
+//
+//		Object[] possibilities = {"Easy", "Intermediate", "Hard"};
+//		Difficulty = (String)JOptionPane.showInputDialog(
+//                frame,
+//                "Please Select Difficulty Level:",
+//                "Connect Four",
+//                JOptionPane.PLAIN_MESSAGE,
+//                icon,
+//                possibilities,
+//                "");
+//		
+//		Object[] colors = {"Red", "Yellow", "Blue", "Green"};
+//		color = (String)JOptionPane.showInputDialog(
+//                frame,
+//                "Please Select A Color:",
+//                "Connect Four",
+//                JOptionPane.PLAIN_MESSAGE,
+//                icon,
+//                colors,
+//                "");
 		
 		
 //		Text name = new Text(Name);
@@ -74,8 +75,8 @@ public String getDifficulty() {
 	return Difficulty;
 }
 
-public String getColor() {
-	return Color;
+public Color getColor() {
+	return color;
 }
 
 

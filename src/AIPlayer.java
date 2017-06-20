@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-
+// TODO AIPlayer had index out of bounds
 public class AIPlayer extends Player{
 	
 	private String difficulty;
