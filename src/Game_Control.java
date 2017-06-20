@@ -79,9 +79,10 @@ public class Game_Control extends JFrame {
 				}
 				p1Turn = !p1Turn;
 				boardView.repaint();
-			} else {
+			} 
+			
+			if (board.isOver())
 				boardView.displayEndGame();
-			}
 		}
 		public void reset (){
 			boardView.reset();
