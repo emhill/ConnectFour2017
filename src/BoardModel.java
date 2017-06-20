@@ -29,6 +29,9 @@ public class BoardModel {
 	}
 	
 	public boolean four(int row, int column) {
+		if (board[row][column] == null)
+			return false;
+		
 		Color color = board[row][column];
 		if (board[row][column+1] == color && board[row][column+2] == color && board[row][column+3] == color) 
 			return true; //checks colors to the right
@@ -46,17 +49,12 @@ public class BoardModel {
 	}
 	
 	public boolean isOver(){
-		int nullCounter = 0;
 		for (int row = 0; row < board.length; row++ ) {
 			for (int column = 0; column < board[row].length; column++) {	
-				if (board[row][column] == null)
-					nullCounter ++;
 				if (four(row, column) == true)
 					return true;
 			}
 		}
-		if (nullCounter == 0)
-			return true;
 		return false;
 	}
 	
@@ -87,9 +85,20 @@ public class BoardModel {
 //		Player p1 = new Player("P1", Color.RED, b);
 //		AIPlayer p2 = new AIPlayer("AI", Color.BLUE, b, p1);	
 //		b.print();
+//		System.out.println(b.four(0, 0));
+//		System.out.println(b.isOver());
 //		
 //		Move move = new Move(0, p1);
+//		Move move2 = new Move(0, p1);
+//		Move move3 = new Move(0, p1);
+//		Move move4 = new Move(0, p1);
+//		
 //		p1.makeMove(move);
+//		p1.makeMove(move2);
+//		p1.makeMove(move3);
+//		p1.makeMove(move4);
+//		System.out.println(b.four(2, 0));
+//		System.out.println(b.isOver());
 //		b.print();
 //	
 //		p2.makeMove();
