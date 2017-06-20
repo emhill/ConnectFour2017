@@ -11,16 +11,15 @@ import java.awt.Dimension;
 
 //Parth Patel
 public class GameSetupView extends JPanel{
-	private String GameName;
-	private JTextField textbox;
-	private String title; 
 	private static Frame frame;
 	private static Icon icon;
-	
+	private String Name;
+	private String Difficulty;
+	private String Color;
 	
 public GameSetupView(){
 		
-		String a = (String)JOptionPane.showInputDialog(
+	 Name = (String)JOptionPane.showInputDialog(
                 frame,
                 "Insert Name here:\n",
                 "Connect Four",
@@ -30,7 +29,7 @@ public GameSetupView(){
                 "");
 
 		Object[] possibilities = {"Easy", "Intermediate", "Hard"};
-		String b = (String)JOptionPane.showInputDialog(
+		Difficulty = (String)JOptionPane.showInputDialog(
                 frame,
                 "Please Select Difficulty Level:",
                 "Connect Four",
@@ -40,7 +39,7 @@ public GameSetupView(){
                 "");
 		
 		Object[] colors = {"Red", "Yellow", "Blue", "Green"};
-		String c = (String)JOptionPane.showInputDialog(
+		Color = (String)JOptionPane.showInputDialog(
                 frame,
                 "Please Select A Color:",
                 "Connect Four",
@@ -48,23 +47,37 @@ public GameSetupView(){
                 icon,
                 colors,
                 "");
+		
+		
+		Text name = new Text(Name);
+		name.setPreferredSize(new Dimension(650, 50));
+		this.add(name);
+		
+		
+		Text difficulty = new Text(Difficulty);
+		difficulty.setPreferredSize(new Dimension(650, 50));
+		this.add(difficulty);
+		
+		
+		Text color = new Text(Color);
+		color.setPreferredSize(new Dimension(650, 50));
+		this.add(color);
+		
 	
-		Text Name = new Text(a);
-		Name.setPreferredSize(new Dimension(650, 50));
-		this.add(Name);
-		
-		
-		Text Difficulty = new Text(b);
-		Difficulty.setPreferredSize(new Dimension(650, 50));
-		this.add(Difficulty);
-		
-		
-		Text Color = new Text(c);
-		Color.setPreferredSize(new Dimension(650, 50));
-		this.add(Color);
-		
-	//	BoardView board = new BoardView("Hassan");
 	}
+
+public String getName() {
+	return Name;
+}
+
+public String getDifficulty() {
+	return Difficulty;
+}
+
+public String getColor() {
+	return Color;
+}
+
 
 public static void main(String[] args){
 	//GameSetupView ConnectFour = new GameSetupView();
