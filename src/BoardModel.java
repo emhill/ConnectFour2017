@@ -24,7 +24,7 @@ public class BoardModel {
 	}
 	
 	public void updateBoard(Move move){		
-		board[move.getRow()][move.getColumn()] = move.getPlayer().getColor();
+		board[columnRow(move.getColumn())][move.getColumn()] = move.getPlayer().getColor();
 	}
 	
 	public boolean four(int row, int column) {
