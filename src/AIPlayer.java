@@ -160,6 +160,7 @@ public class AIPlayer extends Player{
 		return new Move(5, this);		
 	}
 
+	
 	public void makeMove() {
 		this.boardModel.updateBoard(this.AIMove());
 	}
