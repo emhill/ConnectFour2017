@@ -26,7 +26,8 @@ private BoardModel bm;
 
 public BoardView(BoardModel string) {
 	circles = new Circle[7][6];
-	int x=0;		
+	int x=0;	
+	bm = string;
 	for(int i =100; x < circles.length; i+=100, x++){
 		int y=0;
 		for (int t = 135; y < circles[x].length; t+=100, y++){
