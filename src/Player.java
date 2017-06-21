@@ -1,6 +1,8 @@
 /**
- * @author kmbugua
- */
+ /* @author Kibugi Kamau Mbugua
+  * This class creates a player that can make moves on the board
+  */
+ 
 
 import java.awt.*;
 
@@ -36,9 +38,5 @@ public class Player {
 		this.color = color;
 	}	
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

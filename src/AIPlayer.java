@@ -1,7 +1,14 @@
+/**
+ * @author Kibugi Kamau Mbuaua
+ * This class extends the Player class and creates an artificial player that makes
+ * moves on its own.
+ */
+
+//TODO AI only plays in one spot
+
 import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-// TODO AIPlayer had index out of bounds
 public class AIPlayer extends Player{
 	
 	private String difficulty;
@@ -16,18 +23,21 @@ public class AIPlayer extends Player{
 		this.difficulty = difficulty;
 	}
 	
+	//checks if a position can be played if the column is selected
 	private boolean canPlay(int row, int column) {
-		if(board[row+1][column] != null && onBoard(row, column))
+		if(onBoard(row+1,column) && board[row+1][column] != null && onBoard(row, column))
 			return true;
 		return false;
 	}
 	
+	// checks if a position is on the board
 	private boolean onBoard(int row, int column) {
-		if (row < board.length && column < board[row].length)
+		if (row < board.length && row >0 && column < board[row].length && column > 0 )
 			return true;
 		return false;
 	}
 	
+	//checks if there are num of one color in a block of four to the right of a position
 	private int assesRight(int row, int column, int num, Color color) {
 		int count = 0;
 		for (int i = 0; i < 4; i++) {
@@ -49,6 +59,7 @@ public class AIPlayer extends Player{
 		return -1;
 	}
 	
+	//checks if there are num of one color in a block of four to the bottom of a position
 	private int assesDown(int row, int column, int num, Color color) {
 		int count = 0;
 		for (int i = 0; i < 4; i++) {
@@ -70,6 +81,7 @@ public class AIPlayer extends Player{
 		return -1;
 	}
 	
+	//checks if there are num of one color in a block of four to the bottom-right of a position
 	private int assesBottomRight(int row, int column, int num, Color color) {
 		int count = 0;
 		for (int i = 0; i < 4; i++) {
@@ -91,6 +103,7 @@ public class AIPlayer extends Player{
 		return -1;
 	}
 	
+	//checks if there are num of one color in a block of four to the bottom-left of a position
 	private int assesBottomLeft(int row, int column, int num, Color color) {
 		int count = 0;
 		for (int i = 0; i < 4; i++) {
@@ -112,7 +125,7 @@ public class AIPlayer extends Player{
 		return -1;
 	}
 	
-
+	// this return the move the AI should make
 	public Move AIMove() {
 		//the first move
 		if (!isFirstMove){
@@ -138,22 +151,22 @@ public class AIPlayer extends Player{
 				if (assesRight(row, column, diffInt, color) > 0)
 					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
 				else if (assesDown(row, column, diffInt, color) > 0)
-					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+					return new Move(assesDown(row, column, diffInt, color), this, boardModel);
 				else if (assesBottomRight(row, column, diffInt, color) > 0)
-					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+					return new Move(assesBottomRight(row, column, diffInt, color), this, boardModel);
 				else if (assesBottomLeft(row, column, diffInt, color) > 0)
-					return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+					return new Move(assesBottomLeft(row, column, diffInt, color), this, boardModel);
 				else{
 					
 					color = this.color;
 					if (assesRight(row, column, diffInt, color) > 0)
 						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
 					else if (assesDown(row, column, diffInt, color) > 0)
-						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+						return new Move(assesDown(row, column, diffInt, color), this, boardModel);
 					else if (assesBottomRight(row, column, diffInt, color) > 0)
-						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+						return new Move(assesBottomRight(row, column, diffInt, color), this, boardModel);
 					else if (assesBottomLeft(row, column, diffInt, color) > 0)
-						return new Move(assesRight(row, column, diffInt, color), this, boardModel);
+						return new Move(assesBottomLeft(row, column, diffInt, color), this, boardModel);
 				}
 					
 			}
@@ -161,12 +174,10 @@ public class AIPlayer extends Player{
 		return new Move(5, this);		
 	}
 
-	
+	//posts the AI move to the board
 	public void makeMove() {
 		this.boardModel.updateBoard(this.AIMove());
 	}
 	
-	public static void main(String[] args) {
-	}
 
 }
