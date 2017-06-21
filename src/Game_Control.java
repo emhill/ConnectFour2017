@@ -1,12 +1,9 @@
-
-//Hassan Saeed 
+//Hassan Saeed
+//This class basically dictates and controls (calls from) all the other classes.  
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-
-import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
