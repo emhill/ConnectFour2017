@@ -1,6 +1,6 @@
 //Hassan Saeed
 //This class basically dictates and controls (calls from) all the other classes.  
-
+//In the following few set of codes I import all the modules I thought are necessary for this class.
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,15 +9,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Game_Control extends JFrame {
-	//Fields
+	//Fields and making use of other classes!
 		private BoardView boardView;
 		private BoardModel board;
 		private Player Player1;
-		private AIPlayer Player2;
+		private Player Player2;
 		private Text text1;
-		private GameSetupView panel; 
-
-		public Game_Control (){ 
+		private GameSetupView panel;
+		
+//Constructor
+	public Game_Control (){ 
 			super("Connect Four");
 			super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			text1 = new Text ("Hassan"); 
@@ -51,7 +52,7 @@ public class Game_Control extends JFrame {
 			//System.out.print(panel.getDifficulty());
 			this.Player1= new Player(panel.getName(), panel.getColor(), board);
 			//this.Player2 = new AIPlayer("KK", Color.black, board, Player1);
-			this.Player2 = new AIPlayer("Test AI", Color.BLACK, board, Player1, panel.getDifficulty());
+			this.Player2 = new Player("Test AI", Color.BLACK, board);
 			//this.takeTurn();
 			
 			
@@ -72,7 +73,7 @@ public class Game_Control extends JFrame {
 				}
 				else {
 					//AI player
-					//Player2.makeMove();
+					// Player2.makeMove();
 					// Human player2 
 					Move move = new Move(nextX, Player2);
 					Player2.makeMove(move);
