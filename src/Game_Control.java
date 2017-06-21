@@ -1,12 +1,16 @@
+
+//Hassan Saeed 
+
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
+import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-//Hassan Saeed 
 public class Game_Control extends JFrame {
 	//Fields
 		private BoardView boardView;
@@ -15,8 +19,7 @@ public class Game_Control extends JFrame {
 		private AIPlayer Player2;
 		private Text text1;
 		private GameSetupView panel; 
-		//private int nextX = -1;
-		
+
 		public Game_Control (){ 
 			super("Connect Four");
 			super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

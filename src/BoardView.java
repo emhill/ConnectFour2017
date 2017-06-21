@@ -1,3 +1,6 @@
+//Precious Martine & Sindy Alzate 
+//this class is the gui verison of board model 
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -17,14 +20,14 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 public class BoardView extends JPanel {
-
+//fields
 	private Circle board;
 	private Rectangle boardBase;
 	private Circle[][] circles;
 	private BoardModel bm;
 	private boolean went = false;
 
-
+//creation of dark yellow grid for placement of game tokens
 	public BoardView(BoardModel string) {
 		bm =string;
 		circles = new Circle[bm.getBoard().length][bm.getBoard()[0].length];
@@ -36,49 +39,18 @@ public class BoardView extends JPanel {
 				//System.out.println(x + y + i + t);
 			}
 		}
-
+//board base paint 
 		boardBase = new Rectangle(30,50,800, 600, Color.yellow);
 		this.setPreferredSize(new Dimension(800,800));
 		board = new Circle(200,170,20, Color.red);
-		//	this.addMouseListener(new MouseAdapter(){
-		////		public void mouseMoved(MouseEvent e){
-		////			board.setColor(Color.blue);
-		////			repaint();
-		////		}
-		//		public void mousePressed(MouseEvent e) {
-		//			int x = e.getX();
-		//			int y = 5;
-		//			int j = (x/100);
-		////			circles[j][y].setColor(Color.red);
-		////			repaint();
-		////			Game_Control gc= new Game_Control();
-		//			Player p = new Player("test", Color.blue, string);
-		//			
-		//			Move move = new Move(j,p);
-		//			Color color = Color.RED;
-		//			//Color[][] b = move.getBoard();
-		//			for (int i =0; i<6; i ++){
-		//				for (int t =0; t<6; t ++){
-		//					//if (b [i] [t] == color)
-		//						circles[i][t].setColor(Color.red);				
-		//					
-		//					
-		//				}
-		//				repaint();
-		//			}
-
+		
 		
 		repaint();
 	}
 	
-//	private int j = 0;
-//	public int getNextMove(){
-//		went = false;
-//		while (!went);
-//		return j;
-//	}
 
 
+//reset board
 	public void reset(){
 		circles = new Circle[7][6];
 		int x=0;		
@@ -91,7 +63,7 @@ public class BoardView extends JPanel {
 		bm.resetBoard();
 	}
 
-
+//end of the game method 
 	public void displayEndGame(){
 		Component windowFrame = null;
 		int answer = JOptionPane.showConfirmDialog(windowFrame,"Would you like to play again?","Game Over",
@@ -113,7 +85,7 @@ public class BoardView extends JPanel {
 					circles[i][t].setColor(bm.getBoard()[i][t]);				
 
 			}}
-		// board.paint(page);
+		//adding game tokens to land at the bottom of board
 		for(int i =0; i < circles.length; i++){
 			for (int t = 0; t < circles[i].length; t++){
 				if (circles[i][t] != null)
@@ -122,7 +94,7 @@ public class BoardView extends JPanel {
 			}
 		}
 	}
-
+//main method to test and impliment boardmodel 
 	public static void main(String[] args) {
 		BoardModel b = new BoardModel();
 		Player p1 = new Player("P1", Color.RED, b);
@@ -138,9 +110,7 @@ public class BoardView extends JPanel {
 
 		JFrame frame = new JFrame ();
 		BoardView phrase = new BoardView(b);
-		//		phrase.revealLetter('a');
-
-		//	phrase.revealFullPhrase();
+		
 		JPanel panel = phrase;
 
 		frame.getContentPane().add(panel);
