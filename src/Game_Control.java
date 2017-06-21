@@ -13,7 +13,7 @@ public class Game_Control extends JFrame {
 		private BoardView boardView;
 		private BoardModel board;
 		private Player Player1;
-		private Player Player2;
+		private AIPlayer Player2;
 		private Text text1;
 		private GameSetupView panel; 
 
@@ -51,7 +51,7 @@ public class Game_Control extends JFrame {
 			//System.out.print(panel.getDifficulty());
 			this.Player1= new Player(panel.getName(), panel.getColor(), board);
 			//this.Player2 = new AIPlayer("KK", Color.black, board, Player1);
-			this.Player2 = new Player("Test AI", Color.BLACK, board);
+			this.Player2 = new AIPlayer("Test AI", Color.BLACK, board, Player1, panel.getDifficulty());
 			//this.takeTurn();
 			
 			
@@ -72,7 +72,7 @@ public class Game_Control extends JFrame {
 				}
 				else {
 					//AI player
-					// Player2.makeMove();
+					//Player2.makeMove();
 					// Human player2 
 					Move move = new Move(nextX, Player2);
 					Player2.makeMove(move);
