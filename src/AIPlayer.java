@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-
+// TODO AIPlayer had index out of bounds
 public class AIPlayer extends Player{
 	
 	private String difficulty;
@@ -9,10 +9,11 @@ public class AIPlayer extends Player{
 	private Color[][] board = boardModel.getBoard();
 	private boolean isFirstMove;
 	
-	public AIPlayer(String name, Color color, BoardModel boardModel, Player opponent) {
+	public AIPlayer(String name, Color color, BoardModel boardModel, Player opponent, String difficulty) {
 		super(name, color, boardModel);
 		this.opponent = opponent;
 		this.isFirstMove = false;
+		this.difficulty = difficulty;
 	}
 	
 	private boolean canPlay(int row, int column) {
@@ -120,14 +121,14 @@ public class AIPlayer extends Player{
 		}
 		
 		//setting difficulty
+		int diffInt;
 		if (difficulty == "easy") {
 			int random = ThreadLocalRandom.current().nextInt(0, 6 + 1);
 			return new Move(random, this, boardModel);
 		}
-		int diffInt = 2;
-		if (difficulty == "medium")
+		else if (difficulty == "intermediate")
 			diffInt = 3;
-		if (difficulty == "hard")
+		else 
 			diffInt = 2;
 	
 		//predicting opponents move

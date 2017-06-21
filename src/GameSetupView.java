@@ -1,24 +1,31 @@
+//Parth Patel
+
+//Imports
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Frame;
 import java.util.ArrayList;
-
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Color;
 
-
-//Parth Patel
+//GameSetupView Class
 public class GameSetupView extends JPanel{
+	
+//Fields
 	private static Frame frame;
 	private static Icon icon;
 	private String Name;
 	private String Difficulty;
-	private String Color;
+	private Color Color;
 	
+//GameSetupView Constructor
 public GameSetupView(){
 		
+//Dialog Boxes for User Game Setup
 	 Name = (String)JOptionPane.showInputDialog(
                 frame,
                 "Insert Name here:\n",
@@ -38,8 +45,8 @@ public GameSetupView(){
                 possibilities,
                 "");
 		
-		Object[] colors = {"Red", "Yellow", "Blue", "Green"};
-		Color = (String)JOptionPane.showInputDialog(
+		String[] colors = {"Red", "Yellow", "Blue", "Green"};
+		String color = (String)JOptionPane.showInputDialog(
                 frame,
                 "Please Select A Color:",
                 "Connect Four",
@@ -48,24 +55,22 @@ public GameSetupView(){
                 colors,
                 "");
 		
-		
-//		Text name = new Text(Name);
-//		name.setPreferredSize(new Dimension(650, 50));
-//		this.add(name);
-//		
-//		
-//		Text difficulty = new Text(Difficulty);
-//		difficulty.setPreferredSize(new Dimension(650, 50));
-//		this.add(difficulty);
-//		
-//		
-//		Text color = new Text(Color);
-//		color.setPreferredSize(new Dimension(650, 50));
-//		this.add(color);
-//		
-	
-	}
+//Conversions from User Choices to actual Colors
+		if (color == "Red"){
+			Color = Color.RED;
+		}
+		if (color == "Yellow"){
+			Color = Color.YELLOW;
+		}
+		if (color=="Blue"){
+			Color = Color.BLUE;
+		}
+		if (color == "Grenn"){
+			Color = Color.GREEN;
+		}
+}
 
+//Get Methods for Player Inputs
 public String getName() {
 	return Name;
 }
@@ -74,13 +79,14 @@ public String getDifficulty() {
 	return Difficulty;
 }
 
-public String getColor() {
+public Color getColor() {
 	return Color;
 }
 
-
+//Main 
 public static void main(String[] args){
-	//GameSetupView ConnectFour = new GameSetupView();
+	//Creation of Connect Four Game Window
+	
 	JFrame frame = new JFrame("Connect Four");
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
